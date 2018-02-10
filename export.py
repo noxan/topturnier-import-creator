@@ -15,14 +15,29 @@ def buildFilepath(league, dance):
     return os.path.join(cwd, filename)
 
 
+template = '{number};\
+{surnameG};{lastnameG};\
+{surnameL};{lastnameL};\
+{institution}\n'
+
+
 def writeExport(league, dance, couples):
     filepath = buildFilepath(league, dance)
     fh = open(filepath, 'w', encoding='cp1252')
 
-    fh.write('World')
+    for couple in couples:
+        # Number;HeFirstname;HeLastname;SheFirstname;SheLastname;Club
+        fh.write(template.format(**couple))
 
     fh.flush()
     fh.close()
 
 
-writeExport('Bronze', 'Langsamer Walzer', [])
+writeExport('Bronze', 'Langsamer Walzer', [{
+    'number': 1,
+    'surnameG': 'Super',
+    'lastnameG': 'Man',
+    'surnameL': 'Wonder',
+    'lastnameL': 'Woman',
+    'institution': 'World',
+}])
