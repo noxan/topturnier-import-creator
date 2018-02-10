@@ -1,0 +1,1 @@
+with open("anmeldung.csv", 'rw') as filehandle:
