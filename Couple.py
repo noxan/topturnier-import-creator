@@ -39,3 +39,12 @@ class Couple:
       printStart += (" , " + start)
     return printStart
 
+  def participateClass(self, league, startClass):
+    if self.danceClass.find(league) >= 0 and self.printStarts().find(startClass) >= 0:
+      return True
+    else:
+      return False 
+
+  def printCoupleForTTList(self): 
+    # Number;HeFirstname;HeLastname;SheFirstname;SheLastname;Club
+    return str(self.number) + ";"+self.surnameG+";"+self.lastnameG+";"+self.surnameL+";"+self.lastnameL+";"+self.institution+"\n"

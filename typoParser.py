@@ -1,4 +1,5 @@
 import csv
+from export import writeExport
 from Couple import Couple
 
 def getLastnameG(couple):
@@ -37,3 +38,4 @@ with open('interimList.csv', 'w', newline='') as csvfile:
                         singleCouple.institution,
                         singleCouple.danceClass, singleCouple.printStarts() ] )
 
+writeExport("Bronze", "Langsamer Walzer", couples)

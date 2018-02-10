@@ -1,6 +1,6 @@
 import os
 import re
-
+from Couple import Couple
 
 def slugify(text):
     return re.sub(r'\W+', '-', text).lower()
@@ -27,17 +27,18 @@ def writeExport(league, dance, couples):
 
     for couple in couples:
         # Number;HeFirstname;HeLastname;SheFirstname;SheLastname;Club
-        fh.write(template.format(**couple))
+        if couple.participateClass(league, dance):
+            fh.write(couple.printCoupleForTTList())
 
     fh.flush()
     fh.close()
 
 
-writeExport('Bronze', 'Langsamer Walzer', [{
-    'number': 1,
-    'surnameG': 'Super',
-    'lastnameG': 'Man',
-    'surnameL': 'Wonder',
-    'lastnameL': 'Woman',
-    'institution': 'World',
-}])
+#writeExport('Bronze', 'Langsamer Walzer', [{
+#    'number': 1,
+#    'surnameG': 'Super',
+#    'lastnameG': 'Man',
+#    'surnameL': 'Wonder',
+#    'lastnameL': 'Woman',
+#    'institution': 'World',
+#}])
