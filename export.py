@@ -1,11 +1,16 @@
 import os
+import re
+
+
+def slugify(text):
+    return re.sub(r'\W+', '-', text).lower()
 
 
 def buildFilepath(league, dance):
     cwd = os.getcwd()
     filename = '{league}-{dance}.csv'.format(**{
-        'league': league,
-        'dance': dance,
+        'league': slugify(league),
+        'dance': slugify(dance),
     })
     return os.path.join(cwd, filename)
 
