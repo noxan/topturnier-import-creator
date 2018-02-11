@@ -26,8 +26,10 @@ with open('anmeldungClean.csv', newline='') as csvfile:
     
     print(str(coupleNumber) + " " + coupleTemp.surnameG)
     couples.append(coupleTemp)
-    coupleNumber += 1
   couples.sort(key=getLastnameG, reverse=False)
+  for couple in couples:
+    couple.number = coupleNumber
+    coupleNumber += 1
 
 with open('interimList.csv', 'w', newline='') as csvfile:
   spamwriter = csv.writer(csvfile, delimiter=';',
