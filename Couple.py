@@ -40,7 +40,9 @@ class Couple:
       printStart = printStart +" , " + start
     return printStart
 
-  def participateClass(self, league, startClass):
+  def participateClass(self, league, startClass): # Memo Fix for Gold
+    if self.danceClass == "Goldstar" and league == "Gold":
+      return  False 
     if self.danceClass.find(league) >= 0 and self.printStarts().find(startClass) >= 0:
       return True
     else:
