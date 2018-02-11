@@ -20,6 +20,7 @@ class Couple:
     self.lastnameL = row['Zuname Herr']
     self.danceClass = row['Startklasse Tanzschulturnier']
     self.institution = row['Heimatverein/Tanzschule']
+    self.starts = []
     self.appendStarts("Langsamer Walzer",row['Langsamer Walzer'])
     self.appendStarts("Wiener Walzer",row['Wiener Walzer'])
     self.appendStarts("Tango",row['Tango'])
@@ -36,7 +37,7 @@ class Couple:
   def printStarts(self):
     printStart = ""
     for start in self.starts:
-      printStart += (" , " + start)
+      printStart = printStart +" , " + start
     return printStart
 
   def participateClass(self, league, startClass):

@@ -17,7 +17,7 @@ with open('anmeldungClean.csv', newline='') as csvfile:
 
   spamreader = csv.DictReader(csvfile, delimiter=';', quotechar='"')
   for row in spamreader:
-    if(type(row['Startklasse Tanzschulturnier']) != str or type(row['Zuname Herr']) != str):
+    if(type(row['Startklasse Tanzschulturnier']) != str or type(row['Zuname Herr']) != str or type(row['Zuname Dame']) != str ):
       continue # simple filter for broken data sets
     coupleTemp = Couple(row)
     coupleTemp.number = coupleNumber
@@ -38,4 +38,4 @@ with open('interimList.csv', 'w', newline='') as csvfile:
                         singleCouple.institution,
                         singleCouple.danceClass, singleCouple.printStarts() ] )
 
-writeExport("Bronze", "Langsamer Walzer", couples)
+writeExport("Goldstar", "Langsamer Walzer", couples)
