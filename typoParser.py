@@ -31,7 +31,7 @@ with open('anmeldungClean.csv', newline='') as csvfile:
     couple.number = coupleNumber
     coupleNumber += 1
 
-with open('interimList.csv', 'w', newline='') as csvfile:
+with open('interimList.csv', 'w', newline='', encoding='utf-8') as csvfile:
   spamwriter = csv.writer(csvfile, delimiter=';',
                           quotechar='|', quoting=csv.QUOTE_MINIMAL)
   spamwriter.writerow(["Number" , "SurnameG", "LastnameG", "SurnameL", "LastnameL", "Institution", "DanceClass", "Starts"])
