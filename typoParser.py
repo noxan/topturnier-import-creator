@@ -23,7 +23,7 @@ with open('anmeldungClean.csv', newline='') as csvfile:
       continue
     coupleTemp = Couple(row)
     coupleTemp.number = coupleNumber
-    
+
     print(str(coupleNumber) + " " + coupleTemp.surnameG)
     couples.append(coupleTemp)
   couples.sort(key=getLastnameG, reverse=False)
@@ -36,8 +36,8 @@ with open('interimList.csv', 'w', newline='') as csvfile:
                           quotechar='|', quoting=csv.QUOTE_MINIMAL)
   spamwriter.writerow(["Number" , "SurnameG", "LastnameG", "SurnameL", "LastnameL", "Institution", "DanceClass", "Starts"])
   for singleCouple in couples:
-    spamwriter.writerow([ singleCouple.number, 
-                        singleCouple.surnameG, singleCouple.lastnameG, 
+    spamwriter.writerow([ singleCouple.number,
+                        singleCouple.surnameG, singleCouple.lastnameG,
                         singleCouple.surnameL, singleCouple.lastnameL,
                         singleCouple.institution,
                         singleCouple.danceClass, singleCouple.printStarts() ] )
