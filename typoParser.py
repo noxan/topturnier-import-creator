@@ -19,6 +19,8 @@ with open('anmeldungClean.csv', newline='') as csvfile:
   for row in spamreader:
     if(type(row['Startklasse Tanzschulturnier']) != str or type(row['Zuname Herr']) != str or type(row['Zuname Dame']) != str ):
       continue # simple filter for broken data sets
+    if (not bool(row['Zuname Herr'])):
+      continue
     coupleTemp = Couple(row)
     coupleTemp.number = coupleNumber
     
