@@ -35,10 +35,7 @@ class Couple:
     self.appendStarts("Discofox",row['Discofox'])
     
   def printStarts(self):
-    printStart = ""
-    for start in self.starts:
-      printStart = printStart +" , " + start
-    return printStart
+    return ', '.join(self.starts)
 
   def participateClass(self, league, startClass):
     if self.danceClass.find(league) >= 0 and self.printStarts().find(startClass) >= 0:
