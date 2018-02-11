@@ -33,12 +33,9 @@ class Couple:
     self.appendStarts("Jive",row['Jive'])
     self.appendStarts("Salsa",row['Salsa'])
     self.appendStarts("Discofox",row['Discofox'])
-    
+
   def printStarts(self):
-    printStart = ""
-    for start in self.starts:
-      printStart = printStart +" , " + start
-    return printStart
+    return ', '.join(self.starts)
 
   def participateClass(self, league, startClass): # Memo Fix for Gold
     if self.danceClass == "Goldstar" and league == "Gold":
@@ -46,8 +43,8 @@ class Couple:
     if self.danceClass.find(league) >= 0 and self.printStarts().find(startClass) >= 0:
       return True
     else:
-      return False 
+      return False
 
-  def printCoupleForTTList(self): 
+  def printCoupleForTTList(self):
     # Number;HeFirstname;HeLastname;SheFirstname;SheLastname;Club
     return str(self.number) + ";"+self.surnameG+";"+self.lastnameG+";"+self.surnameL+";"+self.lastnameL+";"+self.institution+"\n"

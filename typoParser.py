@@ -19,21 +19,25 @@ with open('anmeldungClean.csv', newline='') as csvfile:
   for row in spamreader:
     if(type(row['Startklasse Tanzschulturnier']) != str or type(row['Zuname Herr']) != str or type(row['Zuname Dame']) != str ):
       continue # simple filter for broken data sets
+    if (not bool(row['Zuname Herr'])):
+      continue
     coupleTemp = Couple(row)
     coupleTemp.number = coupleNumber
-    
+
     print(str(coupleNumber) + " " + coupleTemp.surnameG)
     couples.append(coupleTemp)
-    coupleNumber += 1
   couples.sort(key=getLastnameG, reverse=False)
+  for couple in couples:
+    couple.number = coupleNumber
+    coupleNumber += 1
 
-with open('interimList.csv', 'w', newline='') as csvfile:
+with open('interimList.csv', 'w', newline='', encoding='utf-8') as csvfile:
   spamwriter = csv.writer(csvfile, delimiter=';',
                           quotechar='|', quoting=csv.QUOTE_MINIMAL)
   spamwriter.writerow(["Number" , "SurnameG", "LastnameG", "SurnameL", "LastnameL", "Institution", "DanceClass", "Starts"])
   for singleCouple in couples:
-    spamwriter.writerow([ singleCouple.number, 
-                        singleCouple.surnameG, singleCouple.lastnameG, 
+    spamwriter.writerow([ singleCouple.number,
+                        singleCouple.surnameG, singleCouple.lastnameG,
                         singleCouple.surnameL, singleCouple.lastnameL,
                         singleCouple.institution,
                         singleCouple.danceClass, singleCouple.printStarts() ] )
