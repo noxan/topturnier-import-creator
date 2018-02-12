@@ -5,6 +5,12 @@ from Couple import Couple
 def getLastnameG(couple):
   return couple.lastnameG
 
+def exportDance(dance, couples):
+  writeExport("Goldstar", dance, couples)
+  writeExport("Gold", dance, couples)
+  writeExport("Silber", dance, couples)
+  writeExport("Bronze", dance, couples)
+
 with open('anmeldung.csv', 'r', encoding="UTF-8") as infile, open('anmeldungClean.csv', 'w') as outfile:
   data = infile.read()
   data = data.replace("&amp;", "&")
@@ -42,4 +48,15 @@ with open('interimList.csv', 'w', newline='', encoding='utf-8') as csvfile:
                         singleCouple.institution,
                         singleCouple.danceClass, singleCouple.printStarts() ] )
 
-writeExport("Goldstar", "Langsamer Walzer", couples)
+exportDance("Langsamer Walzer", couples)
+exportDance("Wiener Walzer", couples)
+exportDance("Slow Fox", couples)
+exportDance("Tango", couples)
+exportDance("Quickstep", couples)
+exportDance("Cha Cha Cha", couples)
+exportDance("Rumba", couples)
+exportDance("Samba", couples)
+exportDance("Jive", couples)
+exportDance("Paso Doble", couples)
+exportDance("Salsa", couples)
+exportDance("Discofox", couples)

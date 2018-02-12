@@ -17,7 +17,7 @@ class Couple:
     self.surnameG = row['Vorname Herr']
     self.lastnameG = row['Zuname Herr']
     self.surnameL = row['Vorname Dame']
-    self.lastnameL = row['Zuname Herr']
+    self.lastnameL = row['Zuname Dame']
     self.danceClass = row['Startklasse Tanzschulturnier']
     self.institution = row['Heimatverein/Tanzschule']
     self.starts = []
